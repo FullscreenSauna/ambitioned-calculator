@@ -17,8 +17,7 @@ namespace Calculator.Controllers
         [HttpPost]
         public IActionResult Caclulate([FromBody]string mathExpression)
         {
-            if (string.IsNullOrEmpty(mathExpression) ||
-                !calculatorRepository.CheckMathExpressionValid(mathExpression))
+            if (!calculatorRepository.CheckMathExpressionValid(mathExpression))
             {
                 return ValidationProblem("Invalid mathematical equation");
             }
