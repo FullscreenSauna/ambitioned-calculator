@@ -1,10 +1,11 @@
-﻿using Calculator.Repositories;
+﻿using Calculator.Interfaces;
+using Calculator.Repositories;
 
 namespace CalculatorTests
 {
-    public class Tests
+    public class CalculationTests
     {
-        private CalculatorRepository calculatorRepository;
+        private ICalculatorRepository calculatorRepository;
 
         [SetUp]
         public void Setup()
@@ -56,6 +57,18 @@ namespace CalculatorTests
 
             Assert.That(result, Is.EqualTo(expectedResult));
         }
+
+        [Test]
+        public void BracketsPositiveTest()
+        {
+            var expectedResult = "5.5";
+
+            var expression = "1 + (3 * 3) / 2";
+            var result = calculatorRepository.Calculate(expression).ToString();
+
+            Assert.That(result, Is.EqualTo(expectedResult));
+        }
+
         #endregion
 
         #region NegativeTests
@@ -98,6 +111,18 @@ namespace CalculatorTests
             var expectedResult = "4";
 
             var expression = "16 / 12";
+            var result = calculatorRepository.Calculate(expression).ToString();
+
+            Assert.That(result, !Is.EqualTo(expectedResult));
+        }
+
+
+        [Test]
+        public void BracketsnNegativeTest()
+        {
+            var expectedResult = "5.5";
+
+            var expression = "1 + (3 * 3) / 3";
             var result = calculatorRepository.Calculate(expression).ToString();
 
             Assert.That(result, !Is.EqualTo(expectedResult));
