@@ -1,4 +1,4 @@
-using Calculator.Repositories;
+﻿using Calculator.Repositories;
 
 namespace CalculatorTests
 {
@@ -101,6 +101,19 @@ namespace CalculatorTests
             var result = calculatorRepository.Calculate(expression).ToString();
 
             Assert.That(result, !Is.EqualTo(expectedResult));
+        }
+        #endregion
+
+        #region SpecialTests
+        [Test]
+        public void DivideByZero()
+        {
+            var expectedResult = "∞";
+
+            var expression = "1 / 0";
+            var result = calculatorRepository.Calculate(expression).ToString();
+
+            Assert.That(result, Is.EqualTo(expectedResult));
         }
         #endregion
     }
