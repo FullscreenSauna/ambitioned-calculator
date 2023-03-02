@@ -3,7 +3,7 @@ using Calculator.Repositories;
 
 namespace CalculatorTests
 {
-    internal class ExpressionValidationTests
+    public class ExpressionValidationTests
     {
         private ICalculatorRepository calculatorRepository;
 
