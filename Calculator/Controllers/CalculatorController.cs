@@ -1,7 +1,7 @@
-﻿using CalculatorUI.Interfaces;
+﻿using Calculator.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
-namespace CalculatorUI.Controllers
+namespace Calculator.Controllers
 {
     [ApiController]
     [Route("[controller]")]

@@ -1,4 +1,4 @@
-﻿namespace CalculatorUI.Interfaces
+﻿namespace Calculator.Interfaces
 {
     public interface ICalculatorRepository
     {

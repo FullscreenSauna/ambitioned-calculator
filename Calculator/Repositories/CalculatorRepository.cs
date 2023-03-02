@@ -1,7 +1,7 @@
-﻿using CalculatorUI.Interfaces;
+﻿using Calculator.Interfaces;
 using NCalc;
 
-namespace CalculatorUI.Repositories
+namespace Calculator.Repositories
 {
     public class CalculatorRepository : ICalculatorRepository
     {

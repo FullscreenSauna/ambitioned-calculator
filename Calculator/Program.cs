@@ -1,7 +1,7 @@
-using CalculatorUI.Interfaces;
-using CalculatorUI.Repositories;
+using Calculator.Interfaces;
+using Calculator.Repositories;
 
-namespace CalculatorUI
+namespace Calculator
 {
     public class Program
     {
