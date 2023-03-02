@@ -1,5 +1,6 @@
 ﻿using Calculator.Interfaces;
 using NCalc;
+using System.Text.RegularExpressions;
 
 namespace Calculator.Repositories
 {
@@ -14,6 +15,13 @@ namespace Calculator.Repositories
 
         public bool CheckMathExpressionValid(string mathExpression)
         {
+            var allowedSymbols = new Regex(@"^[0-9\+\-\*\/\(\).\s]+$");
+
+            if (!allowedSymbols.IsMatch(mathExpression))
+            {
+                return false;
+            }
+
             var expression = new Expression(mathExpression);
 
             if (expression.HasErrors())
