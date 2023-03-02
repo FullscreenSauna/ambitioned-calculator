@@ -29,7 +29,7 @@ namespace Calculator.Controllers
                 return Json(StatusCode(500, "Something went wrong!"));
             }
 
-            return Ok(result);
+            return Ok(Json(result));
         }
     }
 }

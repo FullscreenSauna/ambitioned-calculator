@@ -3,7 +3,7 @@ import { Input } from 'reactstrap';
 
 function Calculator() {
   const [mathExpression, setMathExpression] = useState('');
-  const [mathResult, setMathResult] = useState(0);
+  const [mathResult, setMathResult] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
   
   const requestOptions = {
@@ -18,17 +18,17 @@ function Calculator() {
 
   async function handleCalculation () {
     const response = await fetch('calculator', requestOptions);
+    debugger;
     const data = await response.json();
-    
-    if (isNaN(data)) {
-      debugger;
-      setErrorMessage(data.detail ?? data.value);
-      setMathResult(0);
-      console.log(data);
+    debugger;
+
+    if (response.status ==  200) {
+      setErrorMessage('');
+      setMathResult(data.value);
     }
     else {
-      setErrorMessage('');
-      setMathResult(data);
+      setErrorMessage(data.detail ?? data.value);
+      setMathResult(0);
     }
   }
 
