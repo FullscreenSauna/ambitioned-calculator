@@ -87,7 +87,7 @@ namespace CalculatorTests
         }
 
         [Test]
-        public void InValidExpressionLetters()
+        public void InValidExpressionLettersTest()
         {
             var expression = "abc";
 
@@ -97,9 +97,19 @@ namespace CalculatorTests
         }
 
         [Test]
-        public void InValidExpressionLettersAndNumbers()
+        public void InValidExpressionLettersAndNumbersTest()
         {
             var expression = "abc + 1";
+
+            var result = calculatorRepository.CheckMathExpressionValid(expression);
+
+            Assert.That(!result);
+        }
+
+        [Test]
+        public void InValidExpressionEmptyTest()
+        {
+            var expression = "";
 
             var result = calculatorRepository.CheckMathExpressionValid(expression);
 
